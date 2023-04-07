@@ -15,9 +15,7 @@ class MyGridWidget : public QWidget
 public:
     explicit MyGridWidget(QWidget *parent = nullptr);
     ~MyGridWidget();
-    void setData(const QVector<Data> &data);
-    void addData(const Data &data);
-
+    void setData(const Data &data);
 private:
     Ui::MyGridWidget *ui;
     int m_row;

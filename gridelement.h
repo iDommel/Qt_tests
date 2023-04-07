@@ -7,17 +7,20 @@ class GridElement;
 }
 
 class Data;
+enum InspectionType;
 
 class GridElement : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit GridElement(QWidget *parent = nullptr);
+    explicit GridElement(InspectionType inspectionType, QWidget *parent = nullptr);
     ~GridElement();
     void setData(const Data &data);
+    void setInspectionType(InspectionType inspectionType);
 private:
     Ui::GridElement *ui;
+    InspectionType type;
 };
 
 #endif // GRIDELEMENT_H

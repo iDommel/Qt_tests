@@ -20,13 +20,20 @@ MyGridWidget::MyGridWidget(QWidget *parent) :
     // Set the scrollable area's widget to the new widget
     ui->scrollArea->setWidget(scrollWidget);
 
+//    connect(ui->pushButton, &QPushButton::clicked, this, [=]() {
+//        GridElement *gridElement = new GridElement(, scrollWidget);
+//        gridElement->setData(generateRandomInspectionSummary());
+//        scrollLayout->addWidget(gridElement, m_row / 2, m_row % 2);
+//        m_row++;
+//    });
     connect(ui->pushButton, &QPushButton::clicked, this, [=]() {
-        // Create a new GridElement and add it to the new widget
-        GridElement* gridElement = new GridElement(scrollWidget);
-        gridElement->setData(generateRandomData());
-        scrollLayout->addWidget(gridElement, m_row / 2, m_row % 2);
-        m_row++;
+        setData(generateRandomInspectionSummary());
     });
+    scrollLayout->addWidget(new GridElement(PaintInspection, scrollWidget));
+    scrollLayout->addWidget(new GridElement(MarkingInspection, scrollWidget));
+    scrollLayout->addWidget(new GridElement(DefectInspection, scrollWidget));
+    scrollLayout->addWidget(new GridElement(DentInspection, scrollWidget));
+    scrollLayout->addWidget(new GridElement(LightningInspection, scrollWidget));
 }
 
 MyGridWidget::~MyGridWidget()
@@ -35,20 +42,13 @@ MyGridWidget::~MyGridWidget()
         delete ui;
 }
 
-void MyGridWidget::setData(const QVector<Data> &data)
-{
-    for (auto &el: data) {
-        GridElement *newEl = new GridElement();
-        newEl->setData(el);
-        ui->gridLayout->addWidget(newEl, m_row++, 0);
+void MyGridWidget::setData(const Data &data) {
+    // Get all the child GridElement widgets
+    QList<GridElement*> gridElements = ui->scrollArea->findChildren<GridElement*>();
+
+    // Update the data for each GridElement widget
+    for (auto &element: gridElements) {
+        // Set the data for the current GridElement widget
+        element->setData(data);
     }
-}
-
-
-void MyGridWidget::addData(const Data &data)
-{
-    GridElement *newEl = new GridElement();
-
-    newEl->setData(data);
-    ui->gridLayout->addWidget(newEl, m_row++, 0);
 }

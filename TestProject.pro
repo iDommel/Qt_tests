@@ -13,21 +13,18 @@ SOURCES += \
     gridelement.cpp \
     main.cpp \
     mainwindow.cpp \
-    mygridwidget.cpp \
-    testframe.cpp
+    mygridwidget.cpp
 
 HEADERS += \
     Data.h \
     gridelement.h \
     mainwindow.h \
-    mygridwidget.h \
-    testframe.h
+    mygridwidget.h
 
 FORMS += \
     gridelement.ui \
     mainwindow.ui \
-    mygridwidget.ui \
-    testframe.ui
+    mygridwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
