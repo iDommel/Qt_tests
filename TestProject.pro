@@ -18,7 +18,14 @@ SOURCES += \
     mainwindow.cpp \
     markinginspectionwidget.cpp \
     mygridwidget.cpp \
-    paintinspectionwidget.cpp
+    paintinspectionwidget.cpp \
+    startScreen/gridelement.cpp \
+    startScreen/inspectionWidgets/defectinspectionwidget.cpp \
+    startScreen/inspectionWidgets/dentinspectionwidget.cpp \
+    startScreen/inspectionWidgets/lightninginspectionwidget.cpp \
+    startScreen/inspectionWidgets/markinginspectionwidget.cpp \
+    startScreen/inspectionWidgets/paintinspectionwidget.cpp \
+    startScreen/mygridwidget.cpp
 
 HEADERS += \
     Data.h \
@@ -29,7 +36,14 @@ HEADERS += \
     mainwindow.h \
     markinginspectionwidget.h \
     mygridwidget.h \
-    paintinspectionwidget.h
+    paintinspectionwidget.h \
+    startScreen/gridelement.h \
+    startScreen/inspectionWidgets/defectinspectionwidget.h \
+    startScreen/inspectionWidgets/dentinspectionwidget.h \
+    startScreen/inspectionWidgets/lightninginspectionwidget.h \
+    startScreen/inspectionWidgets/markinginspectionwidget.h \
+    startScreen/inspectionWidgets/paintinspectionwidget.h \
+    startScreen/mygridwidget.h
 
 FORMS += \
     gridelement.ui \
