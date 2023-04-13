@@ -10,45 +10,31 @@ CONFIG += c++17
 
 SOURCES += \
     Data.cpp \
-    defectinspectionwidget.cpp \
-    dentinspectionwidget.cpp \
-    gridelement.cpp \
-    lightninginspectionwidget.cpp \
     main.cpp \
     mainwindow.cpp \
-    markinginspectionwidget.cpp \
-    mygridwidget.cpp \
-    paintinspectionwidget.cpp \
-    startScreen/gridelement.cpp \
     startScreen/inspectionWidgets/defectinspectionwidget.cpp \
     startScreen/inspectionWidgets/dentinspectionwidget.cpp \
     startScreen/inspectionWidgets/lightninginspectionwidget.cpp \
     startScreen/inspectionWidgets/markinginspectionwidget.cpp \
     startScreen/inspectionWidgets/paintinspectionwidget.cpp \
+    startScreen/inspectionwidget.cpp \
     startScreen/mygridwidget.cpp
 
 HEADERS += \
     Data.h \
-    defectinspectionwidget.h \
-    dentinspectionwidget.h \
-    gridelement.h \
-    lightninginspectionwidget.h \
     mainwindow.h \
-    markinginspectionwidget.h \
-    mygridwidget.h \
-    paintinspectionwidget.h \
-    startScreen/gridelement.h \
     startScreen/inspectionWidgets/defectinspectionwidget.h \
     startScreen/inspectionWidgets/dentinspectionwidget.h \
     startScreen/inspectionWidgets/lightninginspectionwidget.h \
     startScreen/inspectionWidgets/markinginspectionwidget.h \
     startScreen/inspectionWidgets/paintinspectionwidget.h \
+    startScreen/inspectionwidget.h \
     startScreen/mygridwidget.h
 
 FORMS += \
-    gridelement.ui \
     mainwindow.ui \
-    mygridwidget.ui
+    startScreen/inspectionWidget.ui \
+    startScreen/mygridwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
