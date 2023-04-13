@@ -10,16 +10,26 @@ CONFIG += c++17
 
 SOURCES += \
     Data.cpp \
+    defectinspectionwidget.cpp \
+    dentinspectionwidget.cpp \
     gridelement.cpp \
+    lightninginspectionwidget.cpp \
     main.cpp \
     mainwindow.cpp \
-    mygridwidget.cpp
+    markinginspectionwidget.cpp \
+    mygridwidget.cpp \
+    paintinspectionwidget.cpp
 
 HEADERS += \
     Data.h \
+    defectinspectionwidget.h \
+    dentinspectionwidget.h \
     gridelement.h \
+    lightninginspectionwidget.h \
     mainwindow.h \
-    mygridwidget.h
+    markinginspectionwidget.h \
+    mygridwidget.h \
+    paintinspectionwidget.h
 
 FORMS += \
     gridelement.ui \

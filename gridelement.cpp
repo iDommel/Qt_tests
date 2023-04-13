@@ -7,7 +7,23 @@ GridElement::GridElement(InspectionType inspectionType, QWidget *parent) :
     ui(new Ui::GridElement)
 {
     ui->setupUi(this);
-    setInspectionType(inspectionType);
+
+    type = inspectionType;
+    ui->InspectionType->setText(getInspectionName(type));
+
+    m_horizontalLayout = new QHBoxLayout(this);
+
+    m_progressLabel = new QLabel("Progress amount:", this);
+    m_progressAmount = new QLCDNumber(this);
+    m_progressStatusLabel = new QLabel("Progress status: ", this);
+    m_progressStatusValue = new QLabel("Undefined");
+
+    m_horizontalLayout->addWidget(m_progressStatusLabel);
+    m_horizontalLayout->addWidget(m_progressStatusValue);
+    m_horizontalLayout->addWidget(m_progressLabel);
+    m_horizontalLayout->addWidget(m_progressAmount);
+
+    ui->mainLayout->addLayout(m_horizontalLayout);
 }
 
 GridElement::~GridElement()
@@ -16,60 +32,6 @@ GridElement::~GridElement()
         delete ui;
 }
 
-void GridElement::setInspectionType(InspectionType inspectionType)
+void GridElement::setData(const Data &)
 {
-    type = inspectionType;
-    // hide everything by default
-    ui->PaintProgressionValue->hide();
-    ui->PaintProgressionLabel->hide();
-    ui->PaintStatusValue->hide();
-    ui->PaintStatusLabel->hide();
-    ui->DefectStatusLabel->hide();
-    ui->DefectStatusValue->hide();
-    ui->MarkingStatusLabel->hide();
-    ui->MarkingStatusValue->hide();
-    ui->DentStatusLabel->hide();
-    ui->DentStatusValue->hide();
-    switch (inspectionType) {
-        case PaintInspection:
-            ui->PaintProgressionValue->show();
-            ui->PaintStatusLabel->show();
-        break;
-        case MarkingInspection:
-            ui->MarkingStatusLabel->show();
-            ui->MarkingStatusValue->show();
-        break;
-        case DentInspection:
-            ui->DentStatusLabel->show();
-            ui->DentStatusValue->show();
-        break;
-        case DefectInspection:
-            ui->DefectStatusLabel->show();
-            ui->DefectStatusValue->show();
-        break;
-        default:
-            break;
-    }
-}
-
-void GridElement::setData(const Data &data)
-{
-    ui->InspectionType->setText(getInspectionName(type));
-    switch (type) {
-        case PaintInspection:
-            ui->PaintProgressionValue->display(data.paintInspectionProgression);
-            ui->PaintStatusLabel->setText(data.paintInspectionDone ? "Done" : "Not done");
-            break;
-        case MarkingInspection:
-            ui->MarkingStatusValue->setText(data.markingInspectionDone ? "Done" : "Not done");
-            break;
-        case DefectInspection:
-            ui->DefectStatusValue->setText(data.defectInspectionDone ? "Done" : "Not done");
-            break;
-        case DentInspection:
-            ui->DentStatusValue->setText(data.dentInspectionDone ? "Done" : "Not done");
-            break;
-        default:
-            break;
-    }
 }

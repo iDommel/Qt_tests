@@ -18,6 +18,9 @@ enum InspectionType {
     OtherInspection = 10
 };
 
+InspectionType generateRandomInspectionType();
+QString getInspectionName(InspectionType type);
+
 class Data {
 public:
     Data() = default;
@@ -65,42 +68,8 @@ public:
     int amountOfAnalyzedPhotogrammetry = 0;
     int amountOfValidatedPhotogrammetry = 0;
     int amountOfCheckedPhotogrammetryImages = 0;
-
-    // Informations regarding corrosion inspection
-    bool corrosionInspectionDone = false;
-    float corrosionInspectionProgression = 0.0;
-    QDateTime corrosionInspectionDate;
-    int amountOfAnalyzedCorrosion = 0;
-    int amountOfValidatedCorrosion = 0;
-    int amountOfCheckedCorrosionImages = 0;
-
-    // Informations regarding noise inspection
-    bool noiseInspectionDone = false;
-    float noiseInspectionProgression = 0.0;
-    QDateTime noiseInspectionDate;
-    int amountOfAnalyzedNoise = 0;
-    int amountOfValidatedNoise = 0;
-    int amountOfCheckedNoiseImages = 0;
-
-    // Informations regarding oil inspection
-    bool oilInspectionDone = false;
-    float oilInspectionProgression = 0.0;
-    QDateTime oilInspectionDate;
-    int amountOfAnalyzedOil = 0;
-    int amountOfValidatedOil = 0;
-    int amountOfCheckedOilImages = 0;
-
-    // Informations regarding cleanliness inspection
-    bool cleanlinessInspectionDone = false;
-    float cleanlinessInspectionProgression = 0.0;
-    QDateTime cleanlinessInspectionDate;
-    int amountOfAnalyzedCleanliness = 0;
-    int amountOfValidatedCleanliness = 0;
-    int amountOfCheckedCleanlinessImages = 0;
 };
 
 Data generateRandomInspectionSummary();
-QString getInspectionName(InspectionType type);
-InspectionType generateRandomInspectionType();
 
 #endif // DATA_H

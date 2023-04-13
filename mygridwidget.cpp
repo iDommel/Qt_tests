@@ -4,6 +4,12 @@
 #include "Data.h"
 #include <QLabel>
 
+#include "defectinspectionwidget.h"
+#include "paintinspectionwidget.h"
+#include "dentinspectionwidget.h"
+#include "markinginspectionwidget.h"
+#include "lightninginspectionwidget.h"
+
 MyGridWidget::MyGridWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MyGridWidget),
@@ -20,20 +26,15 @@ MyGridWidget::MyGridWidget(QWidget *parent) :
     // Set the scrollable area's widget to the new widget
     ui->scrollArea->setWidget(scrollWidget);
 
-//    connect(ui->pushButton, &QPushButton::clicked, this, [=]() {
-//        GridElement *gridElement = new GridElement(, scrollWidget);
-//        gridElement->setData(generateRandomInspectionSummary());
-//        scrollLayout->addWidget(gridElement, m_row / 2, m_row % 2);
-//        m_row++;
-//    });
     connect(ui->pushButton, &QPushButton::clicked, this, [=]() {
         setData(generateRandomInspectionSummary());
     });
-    scrollLayout->addWidget(new GridElement(PaintInspection, scrollWidget));
-    scrollLayout->addWidget(new GridElement(MarkingInspection, scrollWidget));
-    scrollLayout->addWidget(new GridElement(DefectInspection, scrollWidget));
-    scrollLayout->addWidget(new GridElement(DentInspection, scrollWidget));
-    scrollLayout->addWidget(new GridElement(LightningInspection, scrollWidget));
+
+    scrollLayout->addWidget(new PaintInspectionWidget(scrollWidget));
+    scrollLayout->addWidget(new MarkingInspectionWidget(scrollWidget));
+    scrollLayout->addWidget(new DefectInspectionWidget(scrollWidget));
+    scrollLayout->addWidget(new DentInspectionWidget(scrollWidget));
+    scrollLayout->addWidget(new LightningInspectionWidget(scrollWidget));
 }
 
 MyGridWidget::~MyGridWidget()

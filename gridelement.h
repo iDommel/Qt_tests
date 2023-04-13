@@ -2,6 +2,9 @@
 #define GRIDELEMENT_H
 
 #include <QWidget>
+#include <QLabel>
+#include <QLCDNumber>
+#include <QHBoxLayout>
 namespace Ui {
 class GridElement;
 }
@@ -16,11 +19,17 @@ class GridElement : public QWidget
 public:
     explicit GridElement(InspectionType inspectionType, QWidget *parent = nullptr);
     ~GridElement();
-    void setData(const Data &data);
-    void setInspectionType(InspectionType inspectionType);
-private:
+    virtual void setData(const Data &data);
+protected:
     Ui::GridElement *ui;
     InspectionType type;
+
+    QLabel* m_progressStatusLabel;
+    QLabel* m_progressStatusValue;
+    QLabel* m_progressLabel;
+    QLCDNumber* m_progressAmount;
+    QHBoxLayout* m_horizontalLayout;
+private:
 };
 
 #endif // GRIDELEMENT_H

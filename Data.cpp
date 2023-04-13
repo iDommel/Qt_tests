@@ -2,7 +2,7 @@
 #include <ctime>
 #include <string>
 #include <random>
-#include "data.h"
+#include "Data.h"
 
 InspectionType generateRandomInspectionType() {
     srand(time(nullptr)); // seed rand() with current time

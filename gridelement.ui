@@ -39,99 +39,17 @@ QLCDNumber {
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <layout class="QHBoxLayout" name="typeHzLayout">
-        <item alignment="Qt::AlignHCenter">
-         <widget class="QLabel" name="InspectionType">
-          <property name="text">
-           <string>Inspection Type:</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="statusHzLayout">
+       <layout class="QVBoxLayout" name="mainLayout">
         <item>
-         <widget class="QLabel" name="PaintStatusLabel">
-          <property name="text">
-           <string>PaintStatus:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="PaintStatusValue">
-          <property name="text">
-           <string>value</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="DefectStatusLabel">
-          <property name="text">
-           <string>DefectStatus</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="DefectStatusValue">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLabel" name="DentStatusLabel">
-          <property name="text">
-           <string>DentStatus</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="DentStatusValue">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="MarkingStatusLabel">
-          <property name="text">
-           <string>MarkingStatus</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="MarkingStatusValue">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="progressionHzLayout">
-        <item>
-         <widget class="QLabel" name="PaintProgressionLabel">
-          <property name="text">
-           <string>PaintProgression:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLCDNumber" name="PaintProgressionValue"/>
+         <layout class="QHBoxLayout" name="typeHzLayout">
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="InspectionType">
+            <property name="text">
+             <string>Inspection Type:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
