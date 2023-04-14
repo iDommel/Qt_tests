@@ -4,11 +4,7 @@
 #include "Data.h"
 #include <QLabel>
 
-#include "inspectionWidgets/defectinspectionwidget.h"
-#include "inspectionWidgets/paintinspectionwidget.h"
-#include "inspectionWidgets/dentinspectionwidget.h"
-#include "inspectionWidgets/markinginspectionwidget.h"
-#include "inspectionWidgets/lightninginspectionwidget.h"
+#include "startScreen/inspectionWidgets/markinginspectionwidget.h"
 
 MyGridWidget::MyGridWidget(QWidget *parent) : QWidget(parent),
                                               ui(new Ui::MyGridWidget),
@@ -26,14 +22,14 @@ MyGridWidget::MyGridWidget(QWidget *parent) : QWidget(parent),
     ui->scrollArea->setWidget(scrollWidget);
 
     connect(ui->pushButton, &QPushButton::clicked, this, [=]() {
-        setData(generateRandomInspectionSummary());
+        setData(generateRandomNewData());
     });
 
-    scrollLayout->addWidget(new PaintInspectionWidget(scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(PaintInspection, scrollWidget));
     scrollLayout->addWidget(new MarkingInspectionWidget(scrollWidget));
-    scrollLayout->addWidget(new DefectInspectionWidget(scrollWidget));
-    scrollLayout->addWidget(new DentInspectionWidget(scrollWidget));
-    scrollLayout->addWidget(new LightningInspectionWidget(scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(DefectInspection, scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(DentInspection, scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(LightningInspection, scrollWidget));
 }
 
 MyGridWidget::~MyGridWidget()

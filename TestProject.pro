@@ -8,26 +8,34 @@ CONFIG += c++17
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+DONECLE_PATH = $$(DONECLE_LIBRARIES)
+isEmpty(DONECLE_PATH){
+DONECLE_PATH = $${DONECLE_LIBRARIES}
+}
+isEmpty(DONECLE_PATH){
+        exists(C:/Donecle/Libraries) {
+                DONECLE_PATH=C:/Donecle/Libraries
+        } else {
+                error("Cannot find Donecle libraries. Please add the line DONECLE_LIBRARIES=C:/Qt/Libraries (the path to the cloned project commun/Libraries.git) in PATH or in the kit environment.")
+        }
+}
+include($${DONECLE_PATH}/include.pri)
+
+
 SOURCES += \
     Data.cpp \
+    jsondata.cpp \
     main.cpp \
     mainwindow.cpp \
-    startScreen/inspectionWidgets/defectinspectionwidget.cpp \
-    startScreen/inspectionWidgets/dentinspectionwidget.cpp \
-    startScreen/inspectionWidgets/lightninginspectionwidget.cpp \
     startScreen/inspectionWidgets/markinginspectionwidget.cpp \
-    startScreen/inspectionWidgets/paintinspectionwidget.cpp \
     startScreen/inspectionwidget.cpp \
     startScreen/mygridwidget.cpp
 
 HEADERS += \
     Data.h \
+    jsondata.h \
     mainwindow.h \
-    startScreen/inspectionWidgets/defectinspectionwidget.h \
-    startScreen/inspectionWidgets/dentinspectionwidget.h \
-    startScreen/inspectionWidgets/lightninginspectionwidget.h \
     startScreen/inspectionWidgets/markinginspectionwidget.h \
-    startScreen/inspectionWidgets/paintinspectionwidget.h \
     startScreen/inspectionwidget.h \
     startScreen/mygridwidget.h
 

@@ -3,6 +3,7 @@
 #include <string>
 #include <random>
 #include "Data.h"
+#include <stdexcept>
 
 InspectionType generateRandomInspectionType() {
     srand(time(nullptr)); // seed rand() with current time
@@ -23,14 +24,6 @@ QString getInspectionName(InspectionType type) {
             return "Dent Inspection";
         case PhotogrammetryInspection:
             return "Photogrammetry Inspection";
-        case CorrosionInspection:
-            return "Corrosion Inspection";
-        case NoiseInspection:
-            return "Noise Inspection";
-        case CleanlinessInspection:
-            return "Cleanliness Inspection";
-        case OilInspection:
-            return "Oil Inspection";
         case OtherInspection:
             return "Other Inspection";
         default:
@@ -38,66 +31,42 @@ QString getInspectionName(InspectionType type) {
     }
 }
 
-Data generateRandomInspectionSummary()
+InspectionData generateRandomInspectionData()
 {
-    Data data;
+    InspectionData data;
+    std::srand(std::time(nullptr));  // Seed the random number generator
 
-    // Random number generator
-    std::random_device rd;
-    std::mt19937 gen(rd());
-
-    // Distribution for boolean values
-    std::bernoulli_distribution bool_dist(0.5);
-
-    // Distribution for float values between 0 and 1
-    std::uniform_real_distribution<float> float_dist(0.0, 1.0);
-
-    // Distribution for integer values between 0 and 100
-    std::uniform_int_distribution<int> int_dist(0, 100);
-
-    // Generate random data for paint inspection
-    data.paintInspectionDone = bool_dist(gen);
-    data.paintInspectionProgression = float_dist(gen);
-    data.paintInspectionDate = QDateTime::currentDateTime().addDays(-int_dist(gen));
-
-    // Generate random data for marking inspection
-    data.markingInspectionDone = bool_dist(gen);
-    data.markingInspectionProgression = float_dist(gen);
-    data.markingInspectionDate = QDateTime::currentDateTime().addDays(-int_dist(gen));
-    data.amountOfAnalyzedStickers = int_dist(gen);
-    data.amountOfValidatedStickers = int_dist(gen);
-
-    // Generate random data for defect inspection
-    data.defectInspectionDone = bool_dist(gen);
-    data.defectInspectionProgression = float_dist(gen);
-    data.defectInspectionDate = QDateTime::currentDateTime().addDays(-int_dist(gen));
-    data.amountOfAnalyzedZois = int_dist(gen);
-    data.amountOfValidatedZois = int_dist(gen);
-    data.amountOfCheckedImages = int_dist(gen);
-
-    // Generate random data for lightning inspection
-    data.lightningInspectionDone = bool_dist(gen);
-    data.lightningInspectionProgression = float_dist(gen);
-    data.lightningInspectionDate = QDateTime::currentDateTime().addDays(-int_dist(gen));
-    data.amountOfAnalyzedLightning = int_dist(gen);
-    data.amountOfValidatedLightning = int_dist(gen);
-    data.amountOfCheckedLightningImages = int_dist(gen);
-
-    // Generate random data for dent inspection
-    data.dentInspectionDone = bool_dist(gen);
-    data.dentInspectionProgression = float_dist(gen);
-    data.dentInspectionDate = QDateTime::currentDateTime().addDays(-int_dist(gen));
-    data.amountOfAnalyzedDent = int_dist(gen);
-    data.amountOfValidatedDent = int_dist(gen);
-    data.amountOfCheckedDentImages = int_dist(gen);
-
-    // Generate random data for photogrammetry inspection
-    data.photogrammetryInspectionDone = bool_dist(gen);
-    data.photogrammetryInspectionProgression = float_dist(gen);
-    data.photogrammetryInspectionDate = QDateTime::currentDateTime().addDays(-int_dist(gen));
-    data.amountOfAnalyzedPhotogrammetry = int_dist(gen);
-    data.amountOfValidatedPhotogrammetry = int_dist(gen);
-    data.amountOfCheckedPhotogrammetryImages = int_dist(gen);
+    // Generate random values for the inspection data
+    data.inspectionDone = std::rand() % 2 == 0;  // Random bool value
+    data.inspectionProgression = static_cast<float>(std::rand()) / RAND_MAX;  // Random float value between 0 and 1
+    data.inspectionDate = QDateTime::currentDateTime().addDays(std::rand() % 30 - 15);  // Random date within 30 days from now
+    data.analyzedObjects = std::rand() % 101;  // Random int value between 0 and 100
+    data.validatedObject = std::rand() % 101;  // Random int value between 0 and 100
 
     return data;
+}
+
+Data generateRandomNewData() {
+    Data data;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dist(0.0, 1.0);
+    for (auto& inspection : data.inspectionData) {
+        inspection = InspectionData {
+            std::rand() % 2 == 0,
+            static_cast<float>(dist(gen)),
+            QDateTime::currentDateTime().addDays(std::rand() % 30 - 15),
+            static_cast<int>(dist(gen) * 10),
+            static_cast<int>(dist(gen) * 10)
+        };
+    }
+    return data;
+}
+
+InspectionData Data::getInspectionData(const InspectionType &type) const
+{
+    if (!inspectionData.contains(type)) {
+            throw std::invalid_argument("Invalid inspection type");
+    }
+    return inspectionData[type];
 }

@@ -1,7 +1,7 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "mygridwidget.h"
+#include "startscreen/mygridwidget.h"
 #include <QLayout>
 
 MainWindow::MainWindow(QWidget *parent)
