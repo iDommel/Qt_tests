@@ -1,39 +1,27 @@
 # Format Style Options - Created with Clang Power Tools
 ---
+AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Right
 AlignOperands: Align
 AlignTrailingComments: true
 AllowAllArgumentsOnNextLine: false
-AllowShortBlocksOnASingleLine: Never
+AllowShortBlocksOnASingleLine: Always
 AllowShortEnumsOnASingleLine: false
-AllowShortIfStatementsOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: true
 BasedOnStyle: LLVM
-BraceWrapping: 
-  AfterCaseLabel: false
-  AfterClass: true
-  AfterControlStatement: true
-  AfterEnum: false
-  AfterFunction: true
-  AfterNamespace: false
-  AfterObjCDeclaration: false
-  AfterStruct: false
-  AfterUnion: false
-  AfterExternBlock: false
-  BeforeCatch: false
-  BeforeElse: true
-  IndentBraces: false
-  SplitEmptyFunction: false
-  SplitEmptyRecord: false
-  SplitEmptyNamespace: false
-  BeforeLambdaBody: false
-  BeforeWhile: false
 BreakBeforeBraces: Allman
 BreakInheritanceList: BeforeColon
 BreakConstructorInitializers: BeforeColon
+BreakBeforeBinaryOperators: NonAssignment
 ColumnLimit: 80
+ConstructorInitializerAllOnOneLineOrOnePerLine : true
 IndentWidth: 4
+IndentCaseLabels: true
+Language: Cpp
 KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
 SpaceBeforeParens: Never
-...
+SeparateDefinitionBlocks: Always
+---

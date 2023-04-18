@@ -24,6 +24,9 @@ include($${DONECLE_PATH}/include.pri)
 
 SOURCES += \
     Data.cpp \
+    data/customisation.cpp \
+    data/inspectionsessionmanager.cpp \
+    data/softwareconfig.cpp \
     jsondata.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -33,6 +36,10 @@ SOURCES += \
 
 HEADERS += \
     Data.h \
+    data/customisation.h \
+    data/customization.h \
+    data/inspectionsessionmanager.h \
+    data/softwareconfig.h \
     jsondata.h \
     mainwindow.h \
     startScreen/inspectionWidgets/markinginspectionwidget.h \

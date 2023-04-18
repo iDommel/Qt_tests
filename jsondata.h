@@ -1,4 +1,3 @@
-
 #ifndef JSONDATA_H
 #define JSONDATA_H
 #include "nlohmann/json.hpp"
@@ -59,4 +58,4 @@ public:
     QDateTime photogrammetryInspectionDate;
 };
 
-#endif  // JSONDATA_H
+#endif // JSONDATA_H

@@ -1,6 +1,6 @@
 #include "inspectionwidget.h"
-#include "ui_inspectionWidget.h"
 #include "Data.h"
+#include "ui_inspectionWidget.h"
 #include <QGroupBox>
 
 void InspectionWidget::generateInfoLayout()
@@ -40,8 +40,9 @@ void InspectionWidget::generateButtonLayout()
     ui->mainLayout->addWidget(buttonBox);
 }
 
-InspectionWidget::InspectionWidget(InspectionType inspectionType, QWidget *parent) : QWidget(parent),
-                                                                                     ui(new Ui::InspectionWidget)
+InspectionWidget::InspectionWidget(InspectionType inspectionType,
+                                   QWidget *parent)
+    : QWidget(parent), ui(new Ui::InspectionWidget)
 {
     ui->setupUi(this);
 
@@ -54,20 +55,24 @@ InspectionWidget::InspectionWidget(InspectionType inspectionType, QWidget *paren
 
 InspectionWidget::~InspectionWidget()
 {
-    if (ui)
-        delete ui;
+    if(ui) delete ui;
 }
 
 void InspectionWidget::setData(const Data &data)
 {
     InspectionData filteredData = data.getInspectionData(type);
     QString progressStatusValue = "Not Done";
-    if (filteredData.inspectionDone) {
-        progressStatusValue = "Done on: " + filteredData.inspectionDate.toString("dd/MM/yyyy hh:mm:ss");
+    if(filteredData.inspectionDone)
+    {
+        progressStatusValue =
+            "Done on: "
+            + filteredData.inspectionDate.toString("dd/MM/yyyy hh:mm:ss");
         m_buttonLocal->setDisabled(false);
         m_buttonCloud->setDisabled(false);
         m_buttonNew->setDisabled(true);
-    } else {
+    }
+    else
+    {
         m_buttonLocal->setDisabled(true);
         m_buttonCloud->setDisabled(true);
         m_buttonNew->setDisabled(false);

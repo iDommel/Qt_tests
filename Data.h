@@ -1,11 +1,12 @@
 
 #ifndef DATA_H
 #define DATA_H
-#include <QString>
 #include <QDateTime>
 #include <QMap>
+#include <QString>
 
-enum InspectionType {
+enum InspectionType
+{
     PaintInspection = 0,
     MarkingInspection = 1,
     DefectInspection = 2,
@@ -38,16 +39,13 @@ class Data
 public:
     InspectionData getInspectionData(const InspectionType &) const;
     QMap<InspectionType, InspectionData> inspectionData = {
-        {PaintInspection, {}},
-        {MarkingInspection, {}},
-        {DefectInspection, {}},
-        {LightningInspection, {}},
-        {DentInspection, {}},
-        {PhotogrammetryInspection, {}},
+        {PaintInspection, {}},  {MarkingInspection, {}},
+        {DefectInspection, {}}, {LightningInspection, {}},
+        {DentInspection, {}},   {PhotogrammetryInspection, {}},
         {OtherInspection, {}}};
 };
 
 Data generateRandomNewData();
 InspectionData generateRandomInspectionData();
 
-#endif  // DATA_H
+#endif // DATA_H
