@@ -40,6 +40,7 @@ void InspectionWidget::generateButtonLayout()
     ui->mainLayout->addWidget(buttonBox);
 }
 
+// Also added a comment !
 InspectionWidget::InspectionWidget(InspectionType inspectionType, QWidget *parent) : QWidget(parent), ui(new Ui::InspectionWidget)
 {
     ui->setupUi(this);
