@@ -34,4 +34,5 @@ void MarkingInspectionWidget::setData(const Data &data)
                                 .arg(markingData.analyzedObjects);
 
     m_stickersValue->setText(stickerString);
+    qDebug() << "MarkingInspectionWidget::setData()";
 }
