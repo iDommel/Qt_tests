@@ -21,7 +21,8 @@ class InspectionWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit InspectionWidget(InspectionType inspectionType, QWidget *parent = nullptr);
+    explicit InspectionWidget(InspectionType inspectionType,
+                              QWidget *parent = nullptr);
     ~InspectionWidget();
     virtual void setData(const Data &data);
 
