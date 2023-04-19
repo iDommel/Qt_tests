@@ -40,9 +40,8 @@ void InspectionWidget::generateButtonLayout()
     ui->mainLayout->addWidget(buttonBox);
 }
 
-InspectionWidget::InspectionWidget(InspectionType inspectionType,
-                                   QWidget *parent)
-    : QWidget(parent), ui(new Ui::InspectionWidget)
+// Also added a comment !
+InspectionWidget::InspectionWidget(InspectionType inspectionType, QWidget *parent) : QWidget(parent), ui(new Ui::InspectionWidget)
 {
     ui->setupUi(this);
 
@@ -64,9 +63,7 @@ void InspectionWidget::setData(const Data &data)
     QString progressStatusValue = "Not Done";
     if(filteredData.inspectionDone)
     {
-        progressStatusValue =
-            "Done on: "
-            + filteredData.inspectionDate.toString("dd/MM/yyyy hh:mm:ss");
+        progressStatusValue = "Done on: " + filteredData.inspectionDate.toString("dd/MM/yyyy hh:mm:ss");
         m_buttonLocal->setDisabled(false);
         m_buttonCloud->setDisabled(false);
         m_buttonNew->setDisabled(true);
