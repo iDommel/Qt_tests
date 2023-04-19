@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>GridElement</class>
- <widget class="QWidget" name="GridElement">
+ <class>InspectionWidget</class>
+ <widget class="QWidget" name="InspectionWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -41,15 +41,11 @@ QLCDNumber {
       <item>
        <layout class="QVBoxLayout" name="mainLayout">
         <item>
-         <layout class="QHBoxLayout" name="typeHzLayout">
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="InspectionType">
-            <property name="text">
-             <string>Inspection Type:</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="InspectionType">
+          <property name="text">
+           <string>Inspection Type:</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
