@@ -3,9 +3,11 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class MyGridWidget;
 }
+class Data;
 class Data;
 
 class MyGridWidget : public QWidget
@@ -16,6 +18,7 @@ public:
     explicit MyGridWidget(QWidget *parent = nullptr);
     ~MyGridWidget();
     void setData(const Data &data);
+
 private:
     Ui::MyGridWidget *ui;
     int m_row;
