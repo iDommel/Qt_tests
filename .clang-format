@@ -4,7 +4,7 @@
 # You can find the documentation for clang-format here:
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 
-# The following configuration is based on the Donecle Code Formatting guidelines
+# The following configuration is based on the original Donecle Code Formatting guidelines
 # defined here:
 # https://confluence.donecle.com/display/DON/Code+formatting
 ---
