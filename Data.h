@@ -38,11 +38,9 @@ class Data
 {
 public:
     InspectionData getInspectionData(const InspectionType &) const;
-    QMap<InspectionType, InspectionData> inspectionData = {
-        {PaintInspection, {}},  {MarkingInspection, {}},
-        {DefectInspection, {}}, {LightningInspection, {}},
-        {DentInspection, {}},   {PhotogrammetryInspection, {}},
-        {OtherInspection, {}}};
+    QMap<InspectionType, InspectionData> inspectionData = {{PaintInspection, {}},     {MarkingInspection, {}}, {DefectInspection, {}},
+                                                           {LightningInspection, {}}, {DentInspection, {}},    {PhotogrammetryInspection, {}},
+                                                           {OtherInspection, {}}};
 };
 
 Data generateRandomNewData();
