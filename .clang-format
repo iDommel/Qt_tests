@@ -1,5 +1,27 @@
-# Format Style Options - Created with Clang Power Tools
+# This is the clang-format configuration file for the Iris Report
+# (ImageAnalyser) project.
+
+# You can find the documentation for clang-format here:
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+# The following configuration is based on the Donecle Code Formatting guidelines
+# defined here:
+# https://confluence.donecle.com/display/DON/Code+formatting
 ---
+# Language options (These will change the formatting for a specific language)
+Language: Cpp
+Standard: c++17
+
+# General options (These will change most of the formatting)
+BasedOnStyle: LLVM
+BreakBeforeBraces: Allman
+ColumnLimit: 160
+IndentWidth: 4
+MaxEmptyLinesToKeep: 1
+SeparateDefinitionBlocks: Always
+SpaceBeforeParens: Never
+
+# Other options (These will change the formatting for a specific case)
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: Consecutive
@@ -10,18 +32,10 @@ AllowAllArgumentsOnNextLine: false
 AllowShortBlocksOnASingleLine: Always
 AllowShortEnumsOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: true
-BasedOnStyle: LLVM
-BreakBeforeBraces: Allman
 BreakInheritanceList: BeforeColon
 BreakConstructorInitializers: BeforeColon
 BreakBeforeBinaryOperators: NonAssignment
-ColumnLimit: 80
 ConstructorInitializerAllOnOneLineOrOnePerLine : true
-IndentWidth: 4
 IndentCaseLabels: true
-Language: Cpp
 KeepEmptyLinesAtTheStartOfBlocks: false
-MaxEmptyLinesToKeep: 1
-SpaceBeforeParens: Never
-SeparateDefinitionBlocks: Always
 ---
