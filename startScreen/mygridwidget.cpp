@@ -21,11 +21,11 @@ MyGridWidget::MyGridWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MyGrid
 
     connect(ui->pushButton, &QPushButton::clicked, this, [=]() { setData(generateRandomNewData()); });
 
-    scrollLayout->addWidget(new InspectionWidget(PaintInspection, scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(InspectionType::PaintInspection, scrollWidget));
     scrollLayout->addWidget(new MarkingInspectionWidget(scrollWidget));
-    scrollLayout->addWidget(new InspectionWidget(DefectInspection, scrollWidget));
-    scrollLayout->addWidget(new InspectionWidget(DentInspection, scrollWidget));
-    scrollLayout->addWidget(new InspectionWidget(LightningInspection, scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(InspectionType::DefectInspection, scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(InspectionType::DentInspection, scrollWidget));
+    scrollLayout->addWidget(new InspectionWidget(InspectionType::LightningInspection, scrollWidget));
 }
 
 MyGridWidget::~MyGridWidget()

@@ -16,19 +16,19 @@ QString getInspectionName(InspectionType type)
 {
     switch(type)
     {
-        case PaintInspection:
+        case InspectionType::PaintInspection:
             return "Paint Inspection";
-        case MarkingInspection:
+        case InspectionType::MarkingInspection:
             return "Marking Inspection";
-        case DefectInspection:
+        case InspectionType::DefectInspection:
             return "Defect Inspection";
-        case LightningInspection:
+        case InspectionType::LightningInspection:
             return "Lightning Inspection";
-        case DentInspection:
+        case InspectionType::DentInspection:
             return "Dent Inspection";
-        case PhotogrammetryInspection:
+        case InspectionType::PhotogrammetryInspection:
             return "Photogrammetry Inspection";
-        case OtherInspection:
+        case InspectionType::OtherInspection:
             return "Other Inspection";
         default:
             return "Invalid Inspection Type"; // return an error message if the
@@ -59,8 +59,14 @@ Data generateRandomNewData()
     std::uniform_real_distribution<> dist(0.0, 1.0);
     for(auto &inspection : data.inspectionData)
     {
-        inspection = InspectionData{std::rand() % 2 == 0, static_cast<float>(dist(gen)), QDateTime::currentDateTime().addDays(std::rand() % 30 - 15),
-                                    static_cast<int>(dist(gen) * 10), static_cast<int>(dist(gen) * 10)};
+        inspection.analyzedObjects = static_cast<int>(dist(gen) * 100);
+        inspection.inspectionDate = QDateTime::currentDateTime().addDays(std::rand() % 30 - 15);
+        inspection.inspectionDone = std::rand() % 2 == 0;
+        inspection.inspectionProgression = static_cast<float>(dist(gen));
+        inspection.validatedObject = static_cast<int>(dist(gen) * 100);
+
+        // InspectionData{std::rand() % 2 == 0, static_cast<float>(dist(gen)), QDateTime::currentDateTime().addDays(std::rand() % 30 - 15),
+        //                             static_cast<int>(dist(gen) * 10), static_cast<int>(dist(gen) * 10)};
     }
     return data;
 }

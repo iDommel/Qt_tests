@@ -3,9 +3,11 @@
 #define DATA_H
 #include <QDateTime>
 #include <QMap>
+#include <QMetaEnum>
+#include <QObject>
 #include <QString>
 
-enum InspectionType
+enum class InspectionType
 {
     PaintInspection = 0,
     MarkingInspection = 1,
@@ -38,9 +40,28 @@ class Data
 {
 public:
     InspectionData getInspectionData(const InspectionType &) const;
-    QMap<InspectionType, InspectionData> inspectionData = {{PaintInspection, {}},     {MarkingInspection, {}}, {DefectInspection, {}},
-                                                           {LightningInspection, {}}, {DentInspection, {}},    {PhotogrammetryInspection, {}},
-                                                           {OtherInspection, {}}};
+    QMap<InspectionType, InspectionData> inspectionData = {{InspectionType::PaintInspection, {}},  {InspectionType::MarkingInspection, {}},
+                                                           {InspectionType::DefectInspection, {}}, {InspectionType::LightningInspection, {}},
+                                                           {InspectionType::DentInspection, {}},   {InspectionType::PhotogrammetryInspection, {}},
+                                                           {InspectionType::OtherInspection, {}}};
+};
+
+class TempClass
+{
+    Q_GADGET
+public:
+    enum class VisionModuleType : int
+    {
+        NO_INSPECTION = 0,
+        STICKER_INSPECTION,
+        PAINT_INSPECTION,
+        DEFECT_INSPECTION,
+        LIGHTNING_INSPECTION,
+        DENT_INSPECTION,
+        RECONSTRUCT_INSPECTION,
+        RECONSTRUCT_DMU
+    };
+    Q_ENUM(VisionModuleType)
 };
 
 Data generateRandomNewData();

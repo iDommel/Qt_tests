@@ -11,10 +11,10 @@ class InspectionSessionManager
 {
 public:
     InspectionSessionManager();
-    static bool fillPreviousInspectionSummary(JSONData &prevInspectionData,
-                                              Data &prevInspectionSummary,
-                                              SoftwareConfig &sc,
-                                              Customization *customization);
+    //    static bool fillPreviousInspectionSummary(JSONData &prevInspectionData,
+    //                                              Data &prevInspectionSummary,
+    //                                              SoftwareConfig &sc,
+    //                                              Customization *customization);
 };
 
 #endif // INSPECTIONSESSIONMANAGER_H

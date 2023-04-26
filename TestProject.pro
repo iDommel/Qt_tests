@@ -20,13 +20,11 @@ isEmpty(DONECLE_PATH){
         }
 }
 include($${DONECLE_PATH}/include.pri)
-
+#reload you cunt
 
 SOURCES += \
     Data.cpp \
-    data/customisation.cpp \
     data/inspectionsessionmanager.cpp \
-    data/softwareconfig.cpp \
     jsondata.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -36,8 +34,6 @@ SOURCES += \
 
 HEADERS += \
     Data.h \
-    data/customisation.h \
-    data/customization.h \
     data/inspectionsessionmanager.h \
     data/softwareconfig.h \
     jsondata.h \

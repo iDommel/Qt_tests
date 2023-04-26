@@ -14,7 +14,7 @@ class InspectionWidget;
 
 class Data;
 class Data;
-enum InspectionType;
+enum class InspectionType;
 
 class InspectionWidget : public QWidget
 {
@@ -22,8 +22,7 @@ class InspectionWidget : public QWidget
 
 public:
     // Test comment on the same line
-    explicit InspectionWidget(InspectionType inspectionType,
-                              QWidget *parent = nullptr);
+    explicit InspectionWidget(InspectionType inspectionType, QWidget *parent = nullptr);
     ~InspectionWidget();
     virtual void setData(const Data &data);
     // Test comment on a different line

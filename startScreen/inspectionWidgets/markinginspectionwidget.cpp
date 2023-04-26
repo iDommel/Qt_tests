@@ -4,19 +4,14 @@
 #include "ui_inspectionWidget.h"
 #include <QGroupBox>
 
-MarkingInspectionWidget::MarkingInspectionWidget(QWidget *parent)
-    : InspectionWidget(MarkingInspection, parent)
-{
-    generateStickersLayout();
-}
+MarkingInspectionWidget::MarkingInspectionWidget(QWidget *parent) : InspectionWidget(InspectionType::MarkingInspection, parent) { generateStickersLayout(); }
 
 void MarkingInspectionWidget::generateStickersLayout()
 {
     QGroupBox *infoBox = new QGroupBox();
     QHBoxLayout *sickersInfoLayout = new QHBoxLayout(infoBox);
 
-    m_stickersLabel =
-        new QLabel("Stickers progress: (Validated/Analysed)", this);
+    m_stickersLabel = new QLabel("Stickers progress: (Validated/Analysed)", this);
     m_stickersValue = new QLabel("Stickers progress: (?/?)", this);
 
     sickersInfoLayout->addWidget(m_stickersLabel);
@@ -28,11 +23,9 @@ void MarkingInspectionWidget::generateStickersLayout()
 void MarkingInspectionWidget::setData(const Data &data)
 {
     InspectionWidget::setData(data);
-    InspectionData markingData = data.getInspectionData(MarkingInspection);
-    QString stickerString = QString("( %1 / %2 )")
-                                .arg(markingData.validatedObject)
-                                .arg(markingData.analyzedObjects);
+    InspectionData markingData = data.getInspectionData(InspectionType::MarkingInspection);
+    QString stickerString = QString("( %1 / %2 )").arg(markingData.validatedObject).arg(markingData.analyzedObjects);
 
     m_stickersValue->setText(stickerString);
-    qDebug() << "MarkingInspectionWidget::setData()";
+    qDebug("MarkingInspectionWidget::setData()");
 }
